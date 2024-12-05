@@ -1,5 +1,8 @@
 #include "fcaseopen.h"
-
+#if defined(WIN32)
+#include <direct.h>
+#define chdir _chdir // clang-cl doesn't like chdir.
+#endif
 #if !defined(_WIN32)
 #include <stdlib.h>
 #include <string.h>
